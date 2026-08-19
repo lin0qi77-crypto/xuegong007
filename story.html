@@ -3,112 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>学宫灵灵七 · 活动剧情（骨架）</title>
+<title>学宫灵灵七/活动剧情 - 代号鸢WIKI_BWIKI_哔哩哔哩</title>
 <style>
-  :root{
-    --ink:#2b2f3a; --paper:#f7f3ea; --card:#fffdf7; --line:#e2d9c6;
-    --accent:#b23a2e; --blue:#3a5a78; --gold:#a8842c; --muted:#8a8374;
-  }
   *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
-       background:var(--paper); color:var(--ink); line-height:1.8;}
-  .wrap{max-width:860px; margin:0 auto; padding:24px 20px 80px;}
-  header{text-align:center; margin-bottom:26px;}
-  h1{font-size:28px; letter-spacing:4px; margin-bottom:4px;}
-  .sub{color:var(--muted); font-size:14px;}
-  nav{display:flex; gap:10px; justify-content:center; margin:18px 0;}
-  nav a{text-decoration:none; padding:7px 22px; border-radius:20px; font-size:14px;
-        background:var(--card); border:1px solid var(--line); color:var(--ink);}
-  nav a.on{background:var(--blue); color:#fff; border-color:var(--blue);}
-  section{margin-top:34px;}
-  h2{font-size:20px; color:var(--blue); border-left:5px solid var(--accent);
-     padding-left:12px; margin-bottom:14px; letter-spacing:2px;}
-  h2 .tag{font-size:12px; color:var(--muted); font-weight:normal; margin-left:8px;}
-  .story-block{background:var(--card); border:1px solid var(--line); border-radius:12px;
-               padding:18px 20px; margin-bottom:14px;}
-  .story-block .sec{color:var(--gold); font-weight:bold; margin-bottom:8px; letter-spacing:1px;}
-  .dialogue{font-size:14px; color:#55504a; margin:6px 0; padding-left:10px; border-left:3px solid var(--line);}
-  .dialogue .who{color:var(--blue); font-weight:600; margin-right:8px;}
-  .placeholder{color:#b3ab99; font-size:13.5px;}
-  .heroes{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:14px;}
-  .hero{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center;}
-  .hero img{width:88px; height:88px; object-fit:contain; border-radius:10px; background:#f1ecdf;}
-  .hero b{display:block; margin-top:8px; font-size:15px;}
-  .hero span{font-size:12px; color:var(--muted);}
-  pre.code{background:#2b2f3a; color:#e8e4d8; border-radius:10px; padding:16px 18px;
-           font-size:13px; overflow-x:auto; line-height:1.9; margin:10px 0;}
-  .note{font-size:12px; color:var(--muted); margin-top:8px;}
-  footer{margin-top:60px; text-align:center; color:var(--muted); font-size:12px;
-         border-top:1px solid var(--line); padding-top:18px;}
+  body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
+       background:#f1f3f6; color:#333; font-size:14px; line-height:1.75;}
+  a{color:#2a6fb5; text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .site-header{background:#1f2f45; color:#fff;}
+  .site-header .inner{max-width:1180px; margin:0 auto; padding:10px 20px;
+                      display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .site-logo{display:flex; align-items:center; gap:10px;}
+  .site-logo .logo-txt{font-size:20px; font-weight:700; letter-spacing:1px; color:#fff;}
+  .site-logo .logo-sub{font-size:11px; color:#9fb3c9;}
+  .site-search{margin-left:auto; display:flex;}
+  .site-search input{width:240px; padding:6px 12px; border:none; border-radius:3px 0 0 3px; font-size:13px;}
+  .site-search button{padding:6px 14px; border:none; border-radius:0 3px 3px 0;
+                      background:#3b7bbf; color:#fff; cursor:pointer; font-size:13px;}
+
+  .main-nav{background:#fff; border-bottom:1px solid #d8dde3;}
+  .main-nav .inner{max-width:1180px; margin:0 auto; padding:0 20px; display:flex; gap:4px; flex-wrap:wrap;}
+  .main-nav a{display:inline-block; padding:11px 18px; font-size:14px; color:#3a3a3a;}
+  .main-nav a.on{color:#2a6fb5; font-weight:700; border-bottom:3px solid #2a6fb5;}
+  .main-nav a:hover{background:#f4f7fa; text-decoration:none;}
+
+  .page{max-width:1180px; margin:0 auto; padding:18px 20px 60px; display:flex; gap:20px; align-items:flex-start;}
+  .content{flex:1; min-width:0; background:#fff; border:1px solid #e2e6ea; padding:24px 28px;}
+  .sidebar{width:290px; flex-shrink:0;}
+  .breadcrumb{font-size:12px; color:#888; margin-bottom:14px;}
+  .breadcrumb a{color:#888;}
+  h1.title{font-size:25px; color:#222; padding-bottom:12px; border-bottom:1px solid #d8dde3; margin-bottom:16px; letter-spacing:1px;}
+  h2{font-size:19px; color:#1f2f45; margin:26px 0 12px; padding-left:10px;
+     border-left:4px solid #2a6fb5; line-height:1.4;}
+  h2 .tag{font-size:12px; color:#999; font-weight:normal; margin-left:10px; border-left:1px solid #ddd; padding-left:10px;}
+  p{margin:8px 0;}
+  .muted{color:#888; font-size:12.5px;}
+
+  .notice{background:#fdf6e3; border:1px solid #e6d9a8; border-left:4px solid #c9a227;
+          padding:10px 14px; margin:14px 0; font-size:13px; color:#5a4e25;}
+  .notice-blue{background:#eef5fc; border:1px solid #c5d8ec; border-left:4px solid #2a6fb5;
+               padding:10px 14px; margin:14px 0; font-size:13px; color:#22415e;}
+
+  .infobox{background:#fff; border:1px solid #d8dde3; margin-bottom:16px;}
+  .infobox .ib-title{background:#1f2f45; color:#fff; text-align:center; padding:7px; font-size:14px; font-weight:700;}
+  .infobox table{width:100%; font-size:12.5px;}
+  .infobox td{padding:6px 8px; border-bottom:1px solid #eef1f4; vertical-align:top;}
+  .infobox td.k{width:34%; color:#666; background:#f7f9fb; font-weight:600;}
+  .infobox .ib-foot{background:#f7f9fb; padding:6px; text-align:center; font-size:11px; color:#999;}
+
+  .hero-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:12px; margin:12px 0;}
+  .hero-item{background:#fff; border:1px solid #d5dae0; border-radius:4px; padding:12px 8px; text-align:center;}
+  .hero-item:hover{border-color:#2a6fb5; box-shadow:0 1px 6px rgba(42,111,181,.18);}
+  .hero-item img{width:84px; height:84px; object-fit:contain; border-radius:4px;}
+  .hero-item b{display:block; margin-top:8px; font-size:14px; color:#333;}
+  .hero-item span{font-size:11.5px; color:#999;}
+
+  .story-block{border:1px solid #e2e6ea; border-radius:4px; margin:10px 0; padding:14px 16px; background:#fff;}
+  .story-block .sec{color:#c9a227; font-weight:700; margin-bottom:8px; letter-spacing:1px;}
+  .dialogue{font-size:13.5px; margin:5px 0; padding-left:10px; border-left:3px solid #e2e6ea;}
+  .dialogue .who{color:#2a6fb5; font-weight:600; margin-right:8px;}
+  .placeholder{color:#b3b3b3; font-size:13px;}
+  pre.code{background:#282c34; color:#e6e1cf; border-radius:4px; padding:14px 16px; font-size:12.5px;
+           overflow-x:auto; line-height:1.9; margin:10px 0;}
+
+  footer{max-width:1180px; margin:0 auto; padding:22px 20px 40px; text-align:center;
+         color:#999; font-size:12px; border-top:1px solid #d8dde3;}
+  footer .line{margin:4px 0;}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <h1>学宫灵灵七 · 活动剧情</h1>
-  <div class="sub">页面骨架（内容待填充）｜对话模板：{{对话|对象|内容|头像=XX}}</div>
-  <nav>
+<div class="site-header">
+  <div class="inner">
+    <div class="site-logo">
+      <span class="logo-txt">代号鸢WIKI</span>
+      <span class="logo-sub">BWiki · 学宫灵灵七</span>
+    </div>
+    <div class="site-search">
+      <input type="text" placeholder="搜索：袁基 / 命运线 / 校园约会…" disabled>
+      <button disabled>搜索</button>
+    </div>
+  </div>
+</div>
+
+<div class="main-nav">
+  <div class="inner">
     <a href="index.html">活动玩法</a>
-    <a class="on" href="story.html">活动剧情</a>
-  </nav>
-</header>
+    <a href="story.html" class="on">活动剧情</a>
+    <a href="#">主线剧情</a>
+    <a href="#">命运线</a>
+    <a href="#">校园约会</a>
+    <a href="#">对话模板</a>
+  </div>
+</div>
 
-<section>
-  <h2>主线剧情 <span class="tag">==引导剧情== → ==学宫·一~N==</span></h2>
-  <div class="story-block">
-    <div class="sec">==引导剧情==</div>
-    <div class="dialogue"><span class="who">我：</span>（引导剧情文本，待填充）</div>
-    <div class="dialogue"><span class="who">旁白：</span>（旁白文本，待填充）</div>
-  </div>
-  <div class="story-block">
-    <div class="sec">==学宫·一==</div>
-    <div class="placeholder">（主线章节剧情文本，逐句录入……）</div>
-  </div>
-  <div class="story-block">
-    <div class="sec">==学宫·二== …（待补充章节）</div>
-  </div>
-</section>
+<div class="page">
+  <div class="content">
+    <div class="breadcrumb"><a href="https://wiki.biligame.com/yuan/">首页</a> › 活动 › <b>学宫灵灵七/活动剧情</b></div>
+    <h1 class="title">学宫灵灵七 · 活动剧情</h1>
+    <p class="muted">本页为页面骨架（内容待填充）。对话模板：{{对话|对象|内容|头像=XX}}。排版仿 BWiki(yuan)。</p>
 
-<section>
-  <h2>命运线 · 男主剧情 <span class="tag">壹 / 贰 / 叁 / 终</span></h2>
-  <div class="heroes">
-    <div class="hero"><img src="assets/pf_xs_yuanji.png" alt="袁基"><b>袁基</b><span>学生会会长 · 炼器屋</span></div>
-    <div class="hero"><img src="assets/pf_xs_furong.png" alt="傅融"><b>傅融</b><span>剧情线待补充</span></div>
-    <div class="hero"><img src="assets/pf_xs_liubian.png" alt="刘辩"><b>刘辩</b><span>剧情线待补充</span></div>
-    <div class="hero"><img src="assets/pf_xs_sunce.png" alt="孙策"><b>孙策</b><span>剧情线待补充</span></div>
-    <div class="hero"><img src="assets/pf_xs_zuoci.png" alt="左慈"><b>左慈</b><span>剧情线待补充</span></div>
-    <div class="hero"><img src="assets/pf_xs_nvzhu.png" alt="我"><b>我（女主）</b><span>太学生</span></div>
-  </div>
-  <p class="note">命运线卡片素材：Act111_FateLine_Card1_fr/lb/sc/yj/zc.png（傅/刘/孙/袁/左）。</p>
-</section>
+    <div class="notice-blue">📌 <b>页面状态：</b>骨架版 —— 章节标题就绪，文本待从游戏内收集后按模板填充。</div>
 
-<section>
-  <h2>校园约会 · 男主邂逅 <span class="tag">结识 → 同行中 → 送回</span></h2>
-  <div class="story-block">
-    <div class="sec">==校园约会·袁基·壹==</div>
-    <div class="placeholder">（男主邂逅文本 + 同行小插曲，待填充……）</div>
-  </div>
-  <div class="story-block">
-    <div class="sec">==校园约会·袁基·贰== …（待补充）</div>
-  </div>
-</section>
+    <h2>主线剧情 <span class="tag">==引导剧情== → ==学宫·一~N==</span></h2>
+    <div class="story-block">
+      <div class="sec">==引导剧情==</div>
+      <div class="dialogue"><span class="who">我：</span><span class="placeholder">（引导剧情文本，待填充）</span></div>
+      <div class="dialogue"><span class="who">旁白：</span><span class="placeholder">（旁白文本，待填充）</span></div>
+    </div>
+    <div class="story-block">
+      <div class="sec">==学宫·一==</div>
+      <p class="placeholder">（主线章节剧情文本，逐句录入……）</p>
+    </div>
+    <div class="story-block">
+      <div class="sec">==学宫·二== …</div>
+      <p class="placeholder">（待补充章节）</p>
+    </div>
 
-<section>
-  <h2>对话模板格式说明</h2>
-  <div class="story-block">
-    <p style="font-size:14px;">整理到 BWiki 时使用以下模板（与上期《回乡的诱惑之广陵爱情故事》一致）：</p>
-    <pre class="code">{{对话-头}}
+    <h2>命运线 · 男主剧情 <span class="tag">壹 / 贰 / 叁 / 终</span></h2>
+    <div class="hero-grid">
+      <div class="hero-item"><img src="assets/pf_xs_yuanji.png" alt="袁基"><b>袁基</b><span>学生会会长 · 炼器屋</span></div>
+      <div class="hero-item"><img src="assets/pf_xs_furong.png" alt="傅融"><b>傅融</b><span>剧情线待补充</span></div>
+      <div class="hero-item"><img src="assets/pf_xs_liubian.png" alt="刘辩"><b>刘辩</b><span>剧情线待补充</span></div>
+      <div class="hero-item"><img src="assets/pf_xs_sunce.png" alt="孙策"><b>孙策</b><span>剧情线待补充</span></div>
+      <div class="hero-item"><img src="assets/pf_xs_zuoci.png" alt="左慈"><b>左慈</b><span>剧情线待补充</span></div>
+      <div class="hero-item"><img src="assets/pf_xs_nvzhu.png" alt="我"><b>我（女主）</b><span>太学生</span></div>
+    </div>
+    <p class="muted">命运线卡片素材：Act111_FateLine_Card1_fr/lb/sc/yj/zc.png（傅/刘/孙/袁/左）。</p>
+
+    <h2>校园约会 · 男主邂逅 <span class="tag">结识 → 同行中 → 送回</span></h2>
+    <div class="story-block">
+      <div class="sec">==校园约会·袁基·壹==</div>
+      <p class="placeholder">（男主邂逅文本 + 同行小插曲，待填充……）</p>
+    </div>
+    <div class="story-block">
+      <div class="sec">==校园约会·袁基·贰== …</div>
+      <p class="placeholder">（待补充）</p>
+    </div>
+
+    <h2>对话模板格式说明</h2>
+    <div class="story-block">
+      <p>整理到 BWiki 时使用以下模板（与上期《回乡的诱惑之广陵爱情故事》一致）：</p>
+      <pre class="code">{{对话-头}}
 ==学宫·一==
 {{对话|村民|广——陵——君——|头像=摊贩}}
 {{心理|我，回来了！}}
 {{旁白|热情的村民，如潮水般涌来……}}
 {{对话-尾}}</pre>
-    <p class="note">头像参数名来自游戏内头像资源（pf_xs_* 等），具体对照表待整理。</p>
+      <p class="muted">头像参数名来自游戏内头像资源（pf_xs_* 等），具体对照表待整理。</p>
+    </div>
   </div>
-</section>
 
-<footer>学宫灵灵七 · 页面骨架 v0.1 — 内容待填充 · 素材：代号鸢 Act111 导出（007-1 / 007-2）</footer>
+  <div class="sidebar">
+    <div class="infobox">
+      <div class="ib-title">活动剧情</div>
+      <table>
+        <tr><td class="k">主线</td><td>引导剧情 → 学宫·一~N</td></tr>
+        <tr><td class="k">命运线</td><td>五男主剧情（壹贰叁终）</td></tr>
+        <tr><td class="k">邂逅</td><td>校园约会 · 男主同行</td></tr>
+        <tr><td class="k">登场角色</td><td>袁基/傅融/刘辩/孙策/左慈/法正/虞翻等</td></tr>
+        <tr><td class="k">素材包</td><td>Act111（007-1 / 007-2）</td></tr>
+      </table>
+      <div class="ib-foot">页面骨架 v0.2 · BWiki 排版</div>
+    </div>
+    <div class="notice">⚠️ 本页为<b>骨架</b>：仅章节与模板格式，剧情文本待游戏内收集后填充。</div>
+  </div>
 </div>
+
+<footer>
+  <div class="line">学宫灵灵七 · 活动剧情 —— 页面骨架（排版仿 BWiki yuan）</div>
+  <div class="line">素材版权归游戏官方所有 · 本页由民间爱好者整理 · 内容待填充</div>
+  <div class="line">页面最后编辑：骨架版 v0.2</div>
+</footer>
 </body>
 </html>
