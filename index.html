@@ -5,67 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>学宫灵灵七 · 活动玩法</title>
 <style>
-  /* ===== 国风·学宫 主题 ===== */
+  /* ===== 配色规范（MAA 暖纸体系）=====
+     纸底 #F6EDD0 / 暖白卡 #FFFDF6 / 奶油 #FFF8EC / 暖棕 #493B2C / 茶棕 #5A4633
+     蜜黄 #EFD28E(小面积) / 金橙 #D78935 / 绛红 #A6514A(极小) / 海盐蓝 #5B6A8C(只描边)
+     马卡龙(信息色): 薄荷绿 #BFDCC0 雾蓝 #C3CFDA 粉 #F0CFC8 杏黄 #F0E0AE  */
   :root{
-    --paper:#f6f1e6;      /* 宣纸 */
-    --card:#fffdf8;
-    --ink:#2b2723;        /* 墨 */
-    --ink-soft:#57504a;
-    --muted:#948b7c;
-    --cinnabar:#b23a2e;   /* 朱砂 */
-    --blue:#3e5c76;       /* 黛蓝 */
-    --gold:#a8842c;       /* 金 */
-    --line:#e4dcc9;
-    --shadow:0 10px 30px rgba(60,50,30,.10);
+    --paper:#F6EDD0;
+    --surface:#FFFDF6;
+    --cream:#FFF8EC;
+    --ink:#493B2C;
+    --ink-soft:#6b5a47;
+    --muted:#9a8b72;
+    --tea:#5A4633;
+    --yellow:#EFD28E;
+    --accent:#D78935;
+    --rouge:#A6514A;
+    --brand-blue:#5B6A8C;
+    --line:#E3D6B4;
+    --mint:#BFDCC0; --mist:#C3CFDA; --pink:#F0CFC8; --apricot:#F0E0AE;
+    --shadow:0 10px 28px rgba(90,70,51,.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
     font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
     background:
-      radial-gradient(1200px 600px at 85% -10%, rgba(168,132,44,.08), transparent 60%),
-      radial-gradient(900px 500px at -10% 20%, rgba(62,92,118,.07), transparent 55%),
+      radial-gradient(1100px 500px at 88% -6%, rgba(239,210,142,.35), transparent 60%),
+      radial-gradient(900px 520px at -8% 24%, rgba(197,207,218,.4), transparent 55%),
       var(--paper);
     color:var(--ink); font-size:15px; line-height:1.8;
   }
-  a{color:var(--blue); text-decoration:none;}
+  a{color:var(--brand-blue); text-decoration:none; border-bottom:1px solid transparent;}
+  a:hover{color:var(--accent); border-bottom-color:var(--accent);}
   .serif{font-family:"Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif;}
 
-  /* ===== Hero ===== */
+  /* ===== Hero（蜜黄装饰 + 茶棕遮罩）===== */
   .hero{position:relative; height:min(520px,72vh); overflow:hidden;
-        background:#22201c url(assets/banner.png) center/cover no-repeat;}
+        background:#3d3226 url(assets/banner.png) center/cover no-repeat;}
   .hero::after{content:""; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(25,22,18,.55) 0%, rgba(25,22,18,.28) 45%, rgba(25,22,18,.78) 100%);}
+    background:linear-gradient(180deg, rgba(45,38,28,.55) 0%, rgba(45,38,28,.25) 45%, rgba(58,47,36,.85) 100%);}
   .hero-inner{position:absolute; left:0; right:0; bottom:0; z-index:2;
     max-width:1120px; margin:0 auto; padding:0 28px 46px;}
-  .hero .kicker{color:#e8d9a8; font-size:13px; letter-spacing:8px; margin-bottom:10px;}
-  .hero h1{color:#fff; font-size:clamp(40px,7vw,72px); letter-spacing:.12em; font-weight:700;
+  .hero .kicker{color:var(--yellow); font-size:13px; letter-spacing:8px; margin-bottom:10px;}
+  .hero h1{color:var(--cream); font-size:clamp(40px,7vw,72px); letter-spacing:.12em; font-weight:700;
            text-shadow:0 3px 18px rgba(0,0,0,.45);}
-  .hero .sub{color:rgba(255,255,255,.85); font-size:15px; margin-top:10px; max-width:640px;}
-  .hero .seal{position:absolute; top:26px; right:30px; z-index:2; width:86px; height:86px;
-    border:3px solid rgba(255,255,255,.85); border-radius:50%;
+  .hero .sub{color:rgba(255,250,236,.88); font-size:15px; margin-top:10px; max-width:640px;}
+  .hero .seal{position:absolute; top:26px; right:30px; z-index:2; width:88px; height:88px;
+    border:2.5px solid var(--yellow); border-radius:50%;
     display:flex; align-items:center; justify-content:center; transform:rotate(-8deg);
-    color:#fff; font-size:20px; letter-spacing:4px; text-indent:4px;
+    color:var(--cream); font-size:20px; letter-spacing:4px; text-indent:4px;
     box-shadow:0 4px 18px rgba(0,0,0,.35);
-    background:radial-gradient(circle, rgba(178,58,46,.25), rgba(178,58,46,.05));}
+    background:radial-gradient(circle, rgba(239,210,142,.22), rgba(239,210,142,.04));}
 
-  /* ===== 导航 ===== */
-  nav{position:sticky; top:0; z-index:50; background:rgba(255,253,248,.92);
+  /* ===== 导航（奶油底 + 蜜黄选中 + 青花线描边）===== */
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,253,246,.94);
       backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
   nav .inner{max-width:1120px; margin:0 auto; padding:0 28px; display:flex; align-items:center; gap:6px;}
-  nav .brand{padding:14px 16px 14px 0; margin-right:8px; font-weight:700; letter-spacing:3px; color:var(--cinnabar);
+  nav .brand{padding:13px 16px 13px 0; margin-right:8px; font-weight:700; letter-spacing:3px; color:var(--tea);
              border-right:1px solid var(--line);}
-  nav a{padding:14px 16px; font-size:14.5px; color:var(--ink-soft); border-bottom:3px solid transparent;}
-  nav a:hover{color:var(--cinnabar); background:rgba(178,58,46,.04);}
-  nav a.on{color:var(--cinnabar); font-weight:700; border-bottom-color:var(--cinnabar);}
+  nav a{padding:13px 16px; font-size:14.5px; color:var(--ink-soft); border-bottom:3px solid transparent; border-radius:0 0 3px 3px;}
+  nav a:hover{color:var(--tea); background:rgba(239,210,142,.35);}
+  nav a.on{color:var(--tea); font-weight:700; background:rgba(239,210,142,.45); border-bottom:2px solid var(--accent);}
   nav .right{margin-left:auto; color:var(--muted); font-size:12.5px;}
 
   /* ===== 布局 ===== */
   .page{max-width:1120px; margin:0 auto; padding:44px 28px 90px;}
   section{margin-top:56px;}
   h2{display:flex; align-items:baseline; gap:14px; margin-bottom:6px;}
-  h2 .en{font-family:"Georgia",serif; font-size:13px; color:var(--gold); letter-spacing:2px;}
-  h2 .cn{font-size:26px; letter-spacing:6px; font-weight:700;}
+  h2 .en{font-family:"Georgia",serif; font-size:13px; color:var(--accent); letter-spacing:2px;}
+  h2 .cn{font-size:26px; letter-spacing:6px; font-weight:700; color:var(--ink);}
   h2::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
   .sec-desc{color:var(--muted); font-size:13.5px; margin-bottom:20px; padding-left:2px;}
 
@@ -73,47 +81,59 @@
   .g4{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));}
   .g5{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
 
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 20px;
-        box-shadow:0 2px 10px rgba(60,50,30,.05); transition:transform .18s ease, box-shadow .18s ease;}
-  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px 20px;
+        box-shadow:0 2px 10px rgba(90,70,51,.06); transition:transform .18s ease, box-shadow .18s ease;}
+  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--brand-blue);}
   .card .ic{width:58px; height:58px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-            background:linear-gradient(145deg,#f3ecdc,#e9dfc8); margin-bottom:14px; border:1px solid var(--line);}
+            background:var(--cream); margin-bottom:14px; border:1px solid var(--line);}
   .card .ic img{width:44px; height:44px; object-fit:contain;}
-  .card h3{font-size:16.5px; letter-spacing:2px; margin-bottom:6px;}
+  .card h3{font-size:16.5px; letter-spacing:2px; margin-bottom:6px; color:var(--ink);}
   .card p{font-size:13px; color:var(--muted);}
 
   .card.tall{display:flex; flex-direction:column; align-items:center; text-align:center; padding:26px 16px;}
   .card.tall .ic{width:72px; height:72px; margin-bottom:16px;}
   .card.tall .ic img{width:54px; height:54px;}
-  .card.tall b{font-size:16px; letter-spacing:3px;}
+  .card.tall b{font-size:16px; letter-spacing:3px; color:var(--ink);}
   .card.tall span{font-size:12.5px; color:var(--muted); margin-top:4px;}
+  /* 马卡龙信息色 · 学科标签（跟打表荧光笔语义） */
+  .tag{display:inline-block; padding:1px 10px; border-radius:10px; font-size:11.5px;
+       margin-top:8px; letter-spacing:1px; color:#4a4237;}
+  .tag.mint{background:var(--mint);} .tag.mist{background:var(--mist);}
+  .tag.pink{background:var(--pink);} .tag.apricot{background:var(--apricot);}
+  .tag.yellow{background:var(--yellow);}
+  /* 强调数字 */
+  .num{color:var(--accent); font-weight:700;}
 
-  /* ===== 表格 ===== */
-  .tbl-wrap{background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden;
-            box-shadow:0 2px 10px rgba(60,50,30,.05);}
+  /* ===== 表格（茶棕表头 + 奶油字 + 青花描边）===== */
+  .tbl-wrap{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+            box-shadow:0 2px 10px rgba(90,70,51,.06);}
   table{width:100%; border-collapse:collapse; font-size:13.5px;}
-  th{background:var(--blue); color:#fff; text-align:left; padding:11px 14px; font-weight:600; letter-spacing:1px;}
-  td{padding:10px 14px; border-top:1px solid var(--line); vertical-align:top;}
-  tbody tr:nth-child(even) td{background:#faf6ec;}
-  tbody tr:hover td{background:#f4ecda;}
-  td.blank{color:#b9b09e; text-align:center; padding:26px 14px;}
+  th{background:var(--tea); color:var(--cream); text-align:left; padding:11px 14px; font-weight:600; letter-spacing:1px;}
+  td{padding:10px 14px; border-top:1px solid var(--line); vertical-align:top; color:var(--ink-soft);}
+  tbody tr:nth-child(even) td{background:var(--cream);}
+  tbody tr:hover td{background:rgba(239,210,142,.28);}
+  td.blank{color:#b3a58a; text-align:center; padding:26px 14px;}
 
-  /* ===== 提示条 ===== */
-  .banner-tip{display:flex; gap:14px; align-items:center; background:linear-gradient(90deg,#fdf3dd,#faf6ec);
-    border:1px solid #e9dcb8; border-left:5px solid var(--gold); border-radius:12px; padding:16px 20px; margin-top:40px;}
-  .banner-tip .dot{font-size:22px;}
-  .banner-tip b{color:#7a5c14;}
-  .banner-tip span{font-size:13.5px; color:#6b6248;}
+  /* ===== 公告条（茶棕深色块）===== */
+  .announce{display:flex; gap:14px; align-items:center; background:var(--tea); color:var(--cream);
+    border-radius:12px; padding:16px 20px; margin-top:40px; box-shadow:0 4px 16px rgba(90,70,51,.25);}
+  .announce .dot{font-size:22px; color:var(--yellow);}
+  .announce b{color:var(--yellow); letter-spacing:1px;}
+  .announce span{font-size:13.5px; color:rgba(255,248,236,.9);}
 
-  /* ===== 剧情/代码 ===== */
-  .chapter{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--gold);
-           border-radius:12px; padding:18px 22px; margin-bottom:14px; box-shadow:0 2px 8px rgba(60,50,30,.04);}
-  .chapter .t{font-weight:700; color:var(--gold); letter-spacing:2px; margin-bottom:8px;}
-  pre.code{background:#2b2723; color:#e9e2d0; border-radius:12px; padding:18px 22px; font-size:13px;
+  /* ===== 剧情 ===== */
+  .chapter{background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--accent);
+           border-radius:12px; padding:18px 22px; margin-bottom:14px; box-shadow:0 2px 8px rgba(90,70,51,.05);}
+  .chapter .t{font-weight:700; color:var(--tea); letter-spacing:2px; margin-bottom:8px;}
+  pre.code{background:var(--tea); color:var(--cream); border-radius:12px; padding:18px 22px; font-size:13px;
            overflow-x:auto; line-height:2; margin-top:12px;}
-  footer{margin-top:80px; padding:34px 0 46px; text-align:center; color:var(--muted); font-size:12.5px;
-         border-top:1px solid var(--line);}
-  footer .l1{letter-spacing:4px; color:var(--ink-soft); font-size:13px; margin-bottom:6px;}
+  /* 极小点缀：绛红 NEW 徽章 */
+  .new-badge{display:inline-block; background:var(--rouge); color:#fff; font-size:10.5px; padding:0 7px;
+             border-radius:8px; vertical-align:middle; margin-left:8px; letter-spacing:1px;}
+
+  footer{margin-top:80px; background:var(--tea); border-radius:14px 14px 0 0;
+         padding:30px 20px 40px; text-align:center; color:rgba(255,248,236,.85); font-size:12.5px;}
+  footer .l1{letter-spacing:4px; color:var(--cream); font-size:13px; margin-bottom:6px;}
   @media (max-width:760px){
     .page{padding:28px 16px 70px;}
     nav .right{display:none;}
@@ -143,13 +163,13 @@
     <a href="#map">地图</a>
     <a href="#systems">系统数据</a>
     <a href="#tasks">发展目标</a>
-    <div class="right">素材 Act111 · v0.3</div>
+    <div class="right">素材 Act111 · v0.4</div>
   </div>
 </nav>
 
 <div class="page">
 
-  <div class="banner-tip">
+  <div class="announce">
     <div class="dot">📜</div>
     <div><b>页面状态：骨架版</b><span> —— 版式与表格表头已就绪，具体数值与文本待从游戏内收集后填充（收集表：腾讯文档《学宫灵灵七（收集表模板）.xlsx》）。</span></div>
   </div>
@@ -166,16 +186,16 @@
     </div>
   </section>
 
-  <!-- 学科 -->
+  <!-- 学科（马卡龙信息色标签） -->
   <section>
     <h2><span class="en">SUBJECTS</span><span class="cn serif">学科能力</span></h2>
     <p class="sec-desc">本期 5 门学科，取代上期 6 项属性（图标对应待确认）</p>
     <div class="grid g5">
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_1.png" alt=""></div><b class="serif">符篆</b><span>书法社 · 符篆考试</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_2.png" alt=""></div><b class="serif">炼器</b><span>爱拼社 · 炼器屋</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_3.png" alt=""></div><b class="serif">灵药</b><span>社团名待确认</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_4.png" alt=""></div><b class="serif">剑道</b><span>械斗社 · 锻体道场</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_5.png" alt=""></div><b class="serif">御兽</b><span>绒绒社</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_1.png" alt=""></div><b class="serif">符篆</b><span>书法社 · 符篆考试</span><span class="tag mint">符篆</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_2.png" alt=""></div><b class="serif">炼器</b><span>爱拼社 · 炼器屋</span><span class="tag mist">炼器</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_3.png" alt=""></div><b class="serif">灵药</b><span>社团名待确认</span><span class="tag pink">灵药</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_4.png" alt=""></div><b class="serif">剑道</b><span>械斗社 · 锻体道场</span><span class="tag apricot">剑道</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_5.png" alt=""></div><b class="serif">御兽</b><span>绒绒社</span><span class="tag yellow">御兽</span></div>
     </div>
   </section>
 
@@ -207,61 +227,61 @@
     <h2><span class="en">SYSTEMS</span><span class="cn serif">系统数据</span></h2>
     <p class="sec-desc">各系统表格表头已就绪，数据待收集填充</p>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">学堂事件</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">学堂事件</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th style="width:5%">序号</th><th style="width:8%">地点</th><th style="width:13%">类型</th><th style="width:18%">事件名称</th><th>事件内容</th><th style="width:16%">事件结果</th></tr></thead>
-      <tbody><tr><td class="blank" colspan="6">事件卡：学科 +2 / +4 / 全学科 +1 / 风水观 buff —— 待填充</td></tr></tbody>
+      <tbody><tr><td class="blank" colspan="6">事件卡：学科 <span class="num">+2 / +4</span> / 全学科 <span class="num">+1</span> / 风水观 buff —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">考场 · 学科问答</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">考场 · 学科问答</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th style="width:5%">序号</th><th style="width:7%">学科</th><th>题目</th><th>选项A</th><th>选项B</th><th>选项C</th><th>正确答案</th></tr></thead>
       <tbody><tr><td class="blank" colspan="7">学科问答题库：题目 + 3 选项 + 正确答案 —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">考场 · 突发事与选项</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">考场 · 突发事与选项</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th style="width:5%">序号</th><th>突发事内容</th><th>随缘答题</th><th>借鉴张鲁的试卷</th><th>翻阅小抄</th></tr></thead>
       <tbody><tr><td class="blank" colspan="5">突发事文本 + 三选项成功率/结果 —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">自习室 · 小抄系统 <span style="font-size:12px; color:var(--muted);">（本期新系统）</span></h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">自习室 · 小抄系统 <span class="new-badge">NEW</span></h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th style="width:5%">序号</th><th style="width:16%">条目名称</th><th>内容文本</th><th style="width:18%">效果</th></tr></thead>
-      <tbody><tr><td class="blank" colspan="4">独自学习 / 和男主一起学习 / 准备小抄 / 我的小抄 0·100 / 精进小抄技术 —— 待填充</td></tr></tbody>
+      <tbody><tr><td class="blank" colspan="4">独自学习 / 和男主一起学习 / 准备小抄 / 我的小抄 <span class="num">0·100</span> / 精进小抄技术 —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">神庙 · 许愿</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">神庙 · 许愿</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th style="width:5%">序号</th><th style="width:12%">许愿结果</th><th style="width:8%">类型</th><th>事件名称</th><th>事件内容</th><th style="width:20%">事件结果</th></tr></thead>
       <tbody><tr><td class="blank" colspan="6">许愿结果（好/坏）—— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">遭遇战 · 怪物PK</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">遭遇战 · 怪物PK</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th style="width:5%">序号</th><th style="width:12%">怪物/对手</th><th>事件内容</th><th style="width:14%">胜利奖励</th><th style="width:14%">失败惩罚</th></tr></thead>
       <tbody><tr><td class="blank" colspan="5">雪怪等遭遇战 —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">恶魔交易 · 特殊事件 <span style="font-size:12px; color:var(--muted);">（本期新系统）</span></h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">恶魔交易 · 特殊事件 <span class="new-badge">NEW</span></h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th style="width:5%">序号</th><th style="width:16%">事件名称</th><th>事件内容（付出 / 获得）</th><th style="width:14%">触发条件</th></tr></thead>
       <tbody><tr><td class="blank" colspan="4">恶魔交易 / 早恋等特殊入口 —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">黄记小卖部 · 商品</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">黄记小卖部 · 商品</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th>商品</th><th style="width:8%">类型</th><th>效果</th><th style="width:10%">消耗</th><th style="width:8%">刷新</th></tr></thead>
       <tbody><tr><td class="blank" colspan="5">提神饮 · 五学科 / 教辅书 —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">社团会馆</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">社团会馆</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th>社团</th><th style="width:10%">专攻学科</th><th style="width:10%">消耗</th><th>收益</th><th style="width:12%">奖学金概率</th></tr></thead>
       <tbody><tr><td class="blank" colspan="5">书法社 / 绒绒社 / 爱拼社 / 灵药社 / 械斗社 —— 待填充</td></tr></tbody>
     </table></div>
 
-    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">校外商店</h3>
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px; color:var(--ink);">校外商店</h3>
     <div class="tbl-wrap"><table>
       <thead><tr><th>礼包 / 商品</th><th style="width:16%">获得道具</th><th style="width:14%">花费</th><th style="width:20%">限购 / 备注</th></tr></thead>
       <tbody><tr><td class="blank" colspan="4">心纸裳 · 校服 ×5、心纸君小屋装饰 —— 待填充</td></tr></tbody>
@@ -279,7 +299,7 @@
 
   <footer>
     <div class="l1 serif">学宫灵灵七 · 活动玩法</div>
-    <div>页面骨架 v0.3 · 国风学宫排版 · 素材版权归游戏官方所有 · 内容待填充</div>
+    <div>页面骨架 v0.4 · 配色规范 MAA 暖纸体系 · 素材版权归游戏官方所有 · 内容待填充</div>
   </footer>
 </div>
 </body>
