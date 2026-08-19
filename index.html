@@ -5,23 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>学宫灵灵七 · 活动玩法</title>
 <style>
-  /* ===== 配色规范（MAA 暖纸体系）=====
-     纸底 #F6EDD0 / 暖白卡 #FFFDF6 / 奶油 #FFF8EC / 暖棕 #493B2C / 茶棕 #5A4633
-     蜜黄 #EFD28E(小面积) / 金橙 #D78935 / 绛红 #A6514A(极小) / 海盐蓝 #5B6A8C(只描边)
-     马卡龙(信息色): 薄荷绿 #BFDCC0 雾蓝 #C3CFDA 粉 #F0CFC8 杏黄 #F0E0AE  */
   :root{
-    --paper:#F6EDD0;
-    --surface:#FFFDF6;
-    --cream:#FFF8EC;
-    --ink:#493B2C;
-    --ink-soft:#6b5a47;
-    --muted:#9a8b72;
-    --tea:#5A4633;
-    --yellow:#EFD28E;
-    --accent:#D78935;
-    --rouge:#A6514A;
-    --brand-blue:#5B6A8C;
-    --line:#E3D6B4;
+    --paper:#F6EDD0; --surface:#FFFDF6; --cream:#FFF8EC;
+    --ink:#493B2C; --ink-soft:#6b5a47; --muted:#9a8b72;
+    --tea:#5A4633; --yellow:#EFD28E; --accent:#D78935;
+    --rouge:#A6514A; --brand-blue:#5B6A8C; --line:#E3D6B4;
     --mint:#BFDCC0; --mist:#C3CFDA; --pink:#F0CFC8; --apricot:#F0E0AE;
     --shadow:0 10px 28px rgba(90,70,51,.14);
   }
@@ -39,11 +27,17 @@
   a:hover{color:var(--accent); border-bottom-color:var(--accent);}
   .serif{font-family:"Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif;}
 
-  /* ===== Hero（蜜黄装饰 + 茶棕遮罩）===== */
-  .hero{position:relative; height:min(520px,72vh); overflow:hidden;
-        background:#3d3226 url(assets/banner.png) center/cover no-repeat;}
-  .hero::after{content:""; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(45,38,28,.55) 0%, rgba(45,38,28,.25) 45%, rgba(58,47,36,.85) 100%);}
+  /* ===== Hero（纯色/渐变 + 装饰，无图片）===== */
+  .hero{position:relative; height:min(500px,68vh); overflow:hidden;
+    background:
+      radial-gradient(900px 420px at 78% 12%, rgba(239,210,142,.28), transparent 60%),
+      radial-gradient(700px 400px at 12% 88%, rgba(197,207,218,.3), transparent 60%),
+      linear-gradient(160deg, #4a3c2b 0%, #3d3226 55%, #332a20 100%);}
+  .hero::before{content:""; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(239,210,142,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239,210,142,.05) 1px, transparent 1px);
+    background-size:44px 44px;}
   .hero-inner{position:absolute; left:0; right:0; bottom:0; z-index:2;
     max-width:1120px; margin:0 auto; padding:0 28px 46px;}
   .hero .kicker{color:var(--yellow); font-size:13px; letter-spacing:8px; margin-bottom:10px;}
@@ -57,7 +51,7 @@
     box-shadow:0 4px 18px rgba(0,0,0,.35);
     background:radial-gradient(circle, rgba(239,210,142,.22), rgba(239,210,142,.04));}
 
-  /* ===== 导航（奶油底 + 蜜黄选中 + 青花线描边）===== */
+  /* ===== 导航 ===== */
   nav{position:sticky; top:0; z-index:50; background:rgba(255,253,246,.94);
       backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
   nav .inner{max-width:1120px; margin:0 auto; padding:0 28px; display:flex; align-items:center; gap:6px;}
@@ -85,26 +79,23 @@
         box-shadow:0 2px 10px rgba(90,70,51,.06); transition:transform .18s ease, box-shadow .18s ease;}
   .card:hover{transform:translateY(-4px); box-shadow:var(--shadow); border-color:var(--brand-blue);}
   .card .ic{width:58px; height:58px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-            background:var(--cream); margin-bottom:14px; border:1px solid var(--line);}
-  .card .ic img{width:44px; height:44px; object-fit:contain;}
+            background:var(--cream); margin-bottom:14px; border:1px solid var(--line); font-size:30px;}
   .card h3{font-size:16.5px; letter-spacing:2px; margin-bottom:6px; color:var(--ink);}
   .card p{font-size:13px; color:var(--muted);}
 
   .card.tall{display:flex; flex-direction:column; align-items:center; text-align:center; padding:26px 16px;}
   .card.tall .ic{width:72px; height:72px; margin-bottom:16px;}
-  .card.tall .ic img{width:54px; height:54px;}
   .card.tall b{font-size:16px; letter-spacing:3px; color:var(--ink);}
   .card.tall span{font-size:12.5px; color:var(--muted); margin-top:4px;}
-  /* 马卡龙信息色 · 学科标签（跟打表荧光笔语义） */
+  /* 马卡龙信息色标签 */
   .tag{display:inline-block; padding:1px 10px; border-radius:10px; font-size:11.5px;
        margin-top:8px; letter-spacing:1px; color:#4a4237;}
   .tag.mint{background:var(--mint);} .tag.mist{background:var(--mist);}
   .tag.pink{background:var(--pink);} .tag.apricot{background:var(--apricot);}
   .tag.yellow{background:var(--yellow);}
-  /* 强调数字 */
   .num{color:var(--accent); font-weight:700;}
 
-  /* ===== 表格（茶棕表头 + 奶油字 + 青花描边）===== */
+  /* ===== 表格 ===== */
   .tbl-wrap{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden;
             box-shadow:0 2px 10px rgba(90,70,51,.06);}
   table{width:100%; border-collapse:collapse; font-size:13.5px;}
@@ -114,20 +105,26 @@
   tbody tr:hover td{background:rgba(239,210,142,.28);}
   td.blank{color:#b3a58a; text-align:center; padding:26px 14px;}
 
-  /* ===== 公告条（茶棕深色块）===== */
+  /* ===== 公告条 / 下载卡 ===== */
   .announce{display:flex; gap:14px; align-items:center; background:var(--tea); color:var(--cream);
     border-radius:12px; padding:16px 20px; margin-top:40px; box-shadow:0 4px 16px rgba(90,70,51,.25);}
   .announce .dot{font-size:22px; color:var(--yellow);}
   .announce b{color:var(--yellow); letter-spacing:1px;}
   .announce span{font-size:13.5px; color:rgba(255,248,236,.9);}
+  .dl-card{display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:14px;
+    background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--brand-blue);
+    border-radius:12px; padding:14px 20px;}
+  .dl-card .big{font-size:24px;}
+  .dl-card .info{flex:1; min-width:220px;}
+  .dl-card .info b{color:var(--ink); letter-spacing:1px;}
+  .dl-card .info div{font-size:12.5px; color:var(--muted); margin-top:2px;}
+  .dl-btn{background:var(--tea); color:var(--cream); padding:9px 20px; border-radius:10px;
+    font-size:13.5px; letter-spacing:1px; border:none; white-space:nowrap; display:inline-block;}
+  .dl-btn:hover{background:var(--ink); color:var(--cream); text-decoration:none;}
 
-  /* ===== 剧情 ===== */
   .chapter{background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--accent);
            border-radius:12px; padding:18px 22px; margin-bottom:14px; box-shadow:0 2px 8px rgba(90,70,51,.05);}
   .chapter .t{font-weight:700; color:var(--tea); letter-spacing:2px; margin-bottom:8px;}
-  pre.code{background:var(--tea); color:var(--cream); border-radius:12px; padding:18px 22px; font-size:13px;
-           overflow-x:auto; line-height:2; margin-top:12px;}
-  /* 极小点缀：绛红 NEW 徽章 */
   .new-badge{display:inline-block; background:var(--rouge); color:#fff; font-size:10.5px; padding:0 7px;
              border-radius:8px; vertical-align:middle; margin-left:8px; letter-spacing:1px;}
 
@@ -163,7 +160,7 @@
     <a href="#map">地图</a>
     <a href="#systems">系统数据</a>
     <a href="#tasks">发展目标</a>
-    <div class="right">素材 Act111 · v0.4</div>
+    <div class="right">v0.5</div>
   </div>
 </nav>
 
@@ -171,21 +168,17 @@
 
   <div class="announce">
     <div class="dot">📜</div>
-    <div><b>页面状态：骨架版</b><span> —— 版式与表格表头已就绪，具体数值与文本待从游戏内收集后填充（收集表：腾讯文档《学宫灵灵七（收集表模板）.xlsx》）。</span></div>
+    <div><b>页面状态：骨架版</b><span> —— 版式与表格表头已就绪，具体数值与文本待从游戏内收集后填充。</span></div>
   </div>
 
   <!-- 收集表下载 -->
-  <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:14px;
-       background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--brand-blue);
-       border-radius:12px; padding:14px 20px;">
-    <div style="font-size:24px;">📋</div>
-    <div style="flex:1; min-width:220px;">
-      <b style="color:var(--ink); letter-spacing:1px;">信息收集表（Excel 模板 · 17 sheets）</b>
-      <div style="font-size:12.5px; color:var(--muted); margin-top:2px;">玩法说明 / 主线剧情 / 命运线邂逅 / 学堂事件卡 / 学科问答 / 突发事 / 自习室小抄 / 神庙许愿 / 遭遇战PK / 恶魔交易 / 商店 / 地点信息 / 发展目标 / 截图存档</div>
+  <div class="dl-card">
+    <div class="big">📋</div>
+    <div class="info">
+      <b>信息收集表（Excel 模板 · 17 sheets）</b>
+      <div>玩法说明 / 主线剧情 / 命运线邂逅 / 学堂事件卡 / 学科问答 / 突发事 / 自习室小抄 / 神庙许愿 / 遭遇战PK / 恶魔交易 / 商店 / 地点信息 / 发展目标 / 截图存档</div>
     </div>
-    <a href="学宫灵灵七（收集表模板）.xlsx" download style="background:var(--tea); color:var(--cream);
-       padding:9px 20px; border-radius:10px; font-size:13.5px; letter-spacing:1px; border:none; white-space:nowrap;">
-      下载模板</a>
+    <a class="dl-btn" href="学宫灵灵七（收集表模板）.xlsx" download>下载模板</a>
   </div>
 
   <!-- 速览 -->
@@ -193,46 +186,46 @@
     <h2><span class="en">OVERVIEW</span><span class="cn serif">活动速览</span></h2>
     <p class="sec-desc">活动时间待补充 · 形式：掷骰走棋盘（大富翁）</p>
     <div class="grid g4">
-      <div class="card"><div class="ic"><img src="assets/Act111_DicePanel_Dice1.png" alt=""></div><h3>掷骰走格</h3><p>通行骰子前进，落格触发对应事件</p></div>
-      <div class="card"><div class="ic"><img src="assets/Act111_MainAttribute_bg.png" alt=""></div><h3>学科能力</h3><p>符篆 · 炼器 · 灵药 · 剑道 · 御兽</p></div>
-      <div class="card"><div class="ic"><img src="assets/Act111_CreditLevel_Bg.png" alt=""></div><h3>学分等级</h3><p>经过起点奖励提升，升级表待实测</p></div>
-      <div class="card"><div class="ic"><img src="assets/Act111_Entry_kaochang_bg.png" alt=""></div><h3>考场考试</h3><p>学科问答 · 突发事 · 翻阅小抄</p></div>
+      <div class="card"><div class="ic">🎲</div><h3>掷骰走格</h3><p>通行骰子前进，落格触发对应事件</p></div>
+      <div class="card"><div class="ic">🎓</div><h3>学科能力</h3><p>符篆 · 炼器 · 灵药 · 剑道 · 御兽</p></div>
+      <div class="card"><div class="ic">📈</div><h3>学分等级</h3><p>经过起点奖励提升，升级表待实测</p></div>
+      <div class="card"><div class="ic">📝</div><h3>考场考试</h3><p>学科问答 · 突发事 · 翻阅小抄</p></div>
     </div>
   </section>
 
-  <!-- 学科（马卡龙信息色标签） -->
+  <!-- 学科 -->
   <section>
     <h2><span class="en">SUBJECTS</span><span class="cn serif">学科能力</span></h2>
-    <p class="sec-desc">本期 5 门学科，取代上期 6 项属性（图标对应待确认）</p>
+    <p class="sec-desc">本期 5 门学科，取代上期 6 项属性</p>
     <div class="grid g5">
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_1.png" alt=""></div><b class="serif">符篆</b><span>书法社 · 符篆考试</span><span class="tag mint">符篆</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_2.png" alt=""></div><b class="serif">炼器</b><span>爱拼社 · 炼器屋</span><span class="tag mist">炼器</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_3.png" alt=""></div><b class="serif">灵药</b><span>社团名待确认</span><span class="tag pink">灵药</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_4.png" alt=""></div><b class="serif">剑道</b><span>械斗社 · 锻体道场</span><span class="tag apricot">剑道</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_5.png" alt=""></div><b class="serif">御兽</b><span>绒绒社</span><span class="tag yellow">御兽</span></div>
+      <div class="card tall"><div class="ic">✍️</div><b class="serif">符篆</b><span>书法社 · 符篆考试</span><span class="tag mint">符篆</span></div>
+      <div class="card tall"><div class="ic">⚒️</div><b class="serif">炼器</b><span>爱拼社 · 炼器屋</span><span class="tag mist">炼器</span></div>
+      <div class="card tall"><div class="ic">🌿</div><b class="serif">灵药</b><span>社团名待确认</span><span class="tag pink">灵药</span></div>
+      <div class="card tall"><div class="ic">⚔️</div><b class="serif">剑道</b><span>械斗社 · 锻体道场</span><span class="tag apricot">剑道</span></div>
+      <div class="card tall"><div class="ic">🐾</div><b class="serif">御兽</b><span>绒绒社</span><span class="tag yellow">御兽</span></div>
     </div>
   </section>
 
   <!-- 地图 -->
   <section id="map">
     <h2><span class="en">MAP</span><span class="cn serif">地图与地点</span></h2>
-    <p class="sec-desc">学宫正门为起点，经过发放奖学金；图标来自素材 Act111_MapPoint_*</p>
+    <p class="sec-desc">学宫正门为起点，经过发放奖学金</p>
     <div class="grid g5">
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_qidian.png" alt=""></div><b class="serif">学宫正门</b><span>起点 · 发放奖学金</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_jiaoshi.png" alt=""></div><b class="serif">学堂</b><span>随机事件</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_kaoshi.png" alt=""></div><b class="serif">考场</b><span>考试</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_shangdian.png" alt=""></div><b class="serif">黄记小卖部</b><span>商店</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_shetuan.png" alt=""></div><b class="serif">社团会馆</b><span>专项提升</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_shenmiao.png" alt=""></div><b class="serif">神庙</b><span>许愿</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_zixi.png" alt=""></div><b class="serif">自习室</b><span>小抄 · 学习</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_bangongshi.png" alt=""></div><b class="serif">办公室</b><span>待确认</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_chuansong.png" alt=""></div><b class="serif">传送</b><span>待确认</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_sucaidao.png" alt=""></div><b class="serif">素材道</b><span>待确认</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_xianji_wu.png" alt=""></div><b class="serif">陷阱</b><span>危险格</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_nanzhu.png" alt=""></div><b class="serif">男主点</b><span>校园约会</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_dagong_wu.png" alt=""></div><b class="serif">兼职</b><span>打工</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_putong.png" alt=""></div><b class="serif">普通格</b><span>学宫小径等</span></div>
-      <div class="card tall"><div class="ic"><img src="assets/Act111_Monster_img1.png" alt=""></div><b class="serif">巫之学宫</b><span>不耗骰子 · 躲避雪怪</span></div>
+      <div class="card tall"><div class="ic">🎓</div><b class="serif">学宫正门</b><span>起点 · 发放奖学金</span></div>
+      <div class="card tall"><div class="ic">🏫</div><b class="serif">学堂</b><span>随机事件</span></div>
+      <div class="card tall"><div class="ic">📝</div><b class="serif">考场</b><span>考试</span></div>
+      <div class="card tall"><div class="ic">🏪</div><b class="serif">黄记小卖部</b><span>商店</span></div>
+      <div class="card tall"><div class="ic">🎭</div><b class="serif">社团会馆</b><span>专项提升</span></div>
+      <div class="card tall"><div class="ic">⛩️</div><b class="serif">神庙</b><span>许愿</span></div>
+      <div class="card tall"><div class="ic">📖</div><b class="serif">自习室</b><span>小抄 · 学习</span></div>
+      <div class="card tall"><div class="ic">🏢</div><b class="serif">办公室</b><span>待确认</span></div>
+      <div class="card tall"><div class="ic">🌀</div><b class="serif">传送</b><span>待确认</span></div>
+      <div class="card tall"><div class="ic">🧱</div><b class="serif">素材道</b><span>待确认</span></div>
+      <div class="card tall"><div class="ic">⚠️</div><b class="serif">陷阱</b><span>危险格</span></div>
+      <div class="card tall"><div class="ic">💑</div><b class="serif">男主点</b><span>校园约会</span></div>
+      <div class="card tall"><div class="ic">💼</div><b class="serif">兼职</b><span>打工</span></div>
+      <div class="card tall"><div class="ic">🛤️</div><b class="serif">普通格</b><span>学宫小径等</span></div>
+      <div class="card tall"><div class="ic">👻</div><b class="serif">巫之学宫</b><span>不耗骰子 · 躲避雪怪</span></div>
     </div>
   </section>
 
@@ -313,7 +306,7 @@
 
   <footer>
     <div class="l1 serif">学宫灵灵七 · 活动玩法</div>
-    <div>页面骨架 v0.4 · 配色规范 MAA 暖纸体系 · 素材版权归游戏官方所有 · 内容待填充</div>
+    <div>页面骨架 v0.5 · 配色规范 MAA 暖纸体系 · 内容待填充</div>
   </footer>
 </div>
 </body>
