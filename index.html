@@ -3,270 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>学宫灵灵七/活动玩法 - 代号鸢WIKI_BWIKI_哔哩哔哩</title>
+<title>学宫灵灵七 · 活动玩法</title>
 <style>
-  /* ===== 仿 BWiki(yuan) 排版 ===== */
+  /* ===== 国风·学宫 主题 ===== */
+  :root{
+    --paper:#f6f1e6;      /* 宣纸 */
+    --card:#fffdf8;
+    --ink:#2b2723;        /* 墨 */
+    --ink-soft:#57504a;
+    --muted:#948b7c;
+    --cinnabar:#b23a2e;   /* 朱砂 */
+    --blue:#3e5c76;       /* 黛蓝 */
+    --gold:#a8842c;       /* 金 */
+    --line:#e4dcc9;
+    --shadow:0 10px 30px rgba(60,50,30,.10);
+  }
   *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
-       background:#f1f3f6; color:#333; font-size:14px; line-height:1.75;}
-  a{color:#2a6fb5; text-decoration:none;}
-  a:hover{text-decoration:underline;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(168,132,44,.08), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(62,92,118,.07), transparent 55%),
+      var(--paper);
+    color:var(--ink); font-size:15px; line-height:1.8;
+  }
+  a{color:var(--blue); text-decoration:none;}
+  .serif{font-family:"Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif;}
 
-  /* ---- 顶栏 ---- */
-  .site-header{background:#1f2f45; color:#fff;}
-  .site-header .inner{max-width:1180px; margin:0 auto; padding:10px 20px;
-                      display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
-  .site-logo{display:flex; align-items:center; gap:10px;}
-  .site-logo .logo-txt{font-size:20px; font-weight:700; letter-spacing:1px; color:#fff;}
-  .site-logo .logo-sub{font-size:11px; color:#9fb3c9;}
-  .site-search{margin-left:auto; display:flex;}
-  .site-search input{width:240px; padding:6px 12px; border:none; border-radius:3px 0 0 3px; font-size:13px;}
-  .site-search button{padding:6px 14px; border:none; border-radius:0 3px 3px 0;
-                      background:#3b7bbf; color:#fff; cursor:pointer; font-size:13px;}
+  /* ===== Hero ===== */
+  .hero{position:relative; height:min(520px,72vh); overflow:hidden;
+        background:#22201c url(assets/banner.png) center/cover no-repeat;}
+  .hero::after{content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(25,22,18,.55) 0%, rgba(25,22,18,.28) 45%, rgba(25,22,18,.78) 100%);}
+  .hero-inner{position:absolute; left:0; right:0; bottom:0; z-index:2;
+    max-width:1120px; margin:0 auto; padding:0 28px 46px;}
+  .hero .kicker{color:#e8d9a8; font-size:13px; letter-spacing:8px; margin-bottom:10px;}
+  .hero h1{color:#fff; font-size:clamp(40px,7vw,72px); letter-spacing:.12em; font-weight:700;
+           text-shadow:0 3px 18px rgba(0,0,0,.45);}
+  .hero .sub{color:rgba(255,255,255,.85); font-size:15px; margin-top:10px; max-width:640px;}
+  .hero .seal{position:absolute; top:26px; right:30px; z-index:2; width:86px; height:86px;
+    border:3px solid rgba(255,255,255,.85); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; transform:rotate(-8deg);
+    color:#fff; font-size:20px; letter-spacing:4px; text-indent:4px;
+    box-shadow:0 4px 18px rgba(0,0,0,.35);
+    background:radial-gradient(circle, rgba(178,58,46,.25), rgba(178,58,46,.05));}
 
-  /* ---- 主导航 ---- */
-  .main-nav{background:#fff; border-bottom:1px solid #d8dde3;}
-  .main-nav .inner{max-width:1180px; margin:0 auto; padding:0 20px;
-                   display:flex; gap:4px; flex-wrap:wrap;}
-  .main-nav a{display:inline-block; padding:11px 18px; font-size:14px; color:#3a3a3a;}
-  .main-nav a.on{color:#2a6fb5; font-weight:700; border-bottom:3px solid #2a6fb5;}
-  .main-nav a:hover{background:#f4f7fa; text-decoration:none;}
+  /* ===== 导航 ===== */
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,253,248,.92);
+      backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  nav .inner{max-width:1120px; margin:0 auto; padding:0 28px; display:flex; align-items:center; gap:6px;}
+  nav .brand{padding:14px 16px 14px 0; margin-right:8px; font-weight:700; letter-spacing:3px; color:var(--cinnabar);
+             border-right:1px solid var(--line);}
+  nav a{padding:14px 16px; font-size:14.5px; color:var(--ink-soft); border-bottom:3px solid transparent;}
+  nav a:hover{color:var(--cinnabar); background:rgba(178,58,46,.04);}
+  nav a.on{color:var(--cinnabar); font-weight:700; border-bottom-color:var(--cinnabar);}
+  nav .right{margin-left:auto; color:var(--muted); font-size:12.5px;}
 
-  /* ---- 页面主体 ---- */
-  .page{max-width:1180px; margin:0 auto; padding:18px 20px 60px; display:flex; gap:20px; align-items:flex-start;}
-  .content{flex:1; min-width:0; background:#fff; border:1px solid #e2e6ea; padding:24px 28px;}
-  .sidebar{width:290px; flex-shrink:0;}
-  .breadcrumb{font-size:12px; color:#888; margin-bottom:14px;}
-  .breadcrumb a{color:#888;}
-  h1.title{font-size:25px; color:#222; padding-bottom:12px; border-bottom:1px solid #d8dde3; margin-bottom:16px; letter-spacing:1px;}
-  h2{font-size:19px; color:#1f2f45; margin:26px 0 12px; padding-left:10px;
-     border-left:4px solid #2a6fb5; line-height:1.4;}
-  h2 .tag{font-size:12px; color:#999; font-weight:normal; margin-left:10px; border-left:1px solid #ddd; padding-left:10px;}
-  h3{font-size:15px; color:#333; margin:16px 0 8px;}
-  p{margin:8px 0;}
-  .muted{color:#888; font-size:12.5px;}
+  /* ===== 布局 ===== */
+  .page{max-width:1120px; margin:0 auto; padding:44px 28px 90px;}
+  section{margin-top:56px;}
+  h2{display:flex; align-items:baseline; gap:14px; margin-bottom:6px;}
+  h2 .en{font-family:"Georgia",serif; font-size:13px; color:var(--gold); letter-spacing:2px;}
+  h2 .cn{font-size:26px; letter-spacing:6px; font-weight:700;}
+  h2::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);}
+  .sec-desc{color:var(--muted); font-size:13.5px; margin-bottom:20px; padding-left:2px;}
 
-  /* ---- 表格 ---- */
-  table.wikitable{width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:13px;}
-  table.wikitable th{background:#eef2f7; border:1px solid #c8cdd3; padding:8px 10px; text-align:left; font-weight:600; color:#1f2f45;}
-  table.wikitable td{border:1px solid #d5dae0; padding:7px 10px; vertical-align:top;}
-  table.wikitable tr:nth-child(even) td{background:#fafbfc;}
-  table.wikitable td.empty-col{color:#b5b5b5; text-align:center;}
+  .grid{display:grid; gap:16px;}
+  .g4{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));}
+  .g5{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
 
-  /* ---- 信息框(右侧) ---- */
-  .infobox{background:#fff; border:1px solid #d8dde3; margin-bottom:16px;}
-  .infobox .ib-title{background:#1f2f45; color:#fff; text-align:center; padding:7px; font-size:14px; font-weight:700;}
-  .infobox table{width:100%; font-size:12.5px;}
-  .infobox td{padding:6px 8px; border-bottom:1px solid #eef1f4; vertical-align:top;}
-  .infobox td.k{width:34%; color:#666; background:#f7f9fb; font-weight:600;}
-  .infobox img{max-width:100%; display:block; margin:0 auto;}
-  .infobox .ib-foot{background:#f7f9fb; padding:6px; text-align:center; font-size:11px; color:#999;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 20px;
+        box-shadow:0 2px 10px rgba(60,50,30,.05); transition:transform .18s ease, box-shadow .18s ease;}
+  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
+  .card .ic{width:58px; height:58px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+            background:linear-gradient(145deg,#f3ecdc,#e9dfc8); margin-bottom:14px; border:1px solid var(--line);}
+  .card .ic img{width:44px; height:44px; object-fit:contain;}
+  .card h3{font-size:16.5px; letter-spacing:2px; margin-bottom:6px;}
+  .card p{font-size:13px; color:var(--muted);}
 
-  /* ---- 卡片网格(图鉴式) ---- */
-  .card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:10px 0;}
-  .card-item{background:#fff; border:1px solid #d5dae0; border-radius:4px; padding:12px 8px; text-align:center;}
-  .card-item:hover{border-color:#2a6fb5; box-shadow:0 1px 6px rgba(42,111,181,.18);}
-  .card-item img{width:56px; height:56px; object-fit:contain;}
-  .card-item b{display:block; font-size:13px; margin-top:6px; color:#333;}
-  .card-item span{font-size:11.5px; color:#999;}
+  .card.tall{display:flex; flex-direction:column; align-items:center; text-align:center; padding:26px 16px;}
+  .card.tall .ic{width:72px; height:72px; margin-bottom:16px;}
+  .card.tall .ic img{width:54px; height:54px;}
+  .card.tall b{font-size:16px; letter-spacing:3px;}
+  .card.tall span{font-size:12.5px; color:var(--muted); margin-top:4px;}
 
-  /* ---- 提示框 ---- */
-  .notice{background:#fdf6e3; border:1px solid #e6d9a8; border-left:4px solid #c9a227;
-          padding:10px 14px; margin:14px 0; font-size:13px; color:#5a4e25;}
-  .notice-blue{background:#eef5fc; border:1px solid #c5d8ec; border-left:4px solid #2a6fb5;
-               padding:10px 14px; margin:14px 0; font-size:13px; color:#22415e;}
+  /* ===== 表格 ===== */
+  .tbl-wrap{background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+            box-shadow:0 2px 10px rgba(60,50,30,.05);}
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  th{background:var(--blue); color:#fff; text-align:left; padding:11px 14px; font-weight:600; letter-spacing:1px;}
+  td{padding:10px 14px; border-top:1px solid var(--line); vertical-align:top;}
+  tbody tr:nth-child(even) td{background:#faf6ec;}
+  tbody tr:hover td{background:#f4ecda;}
+  td.blank{color:#b9b09e; text-align:center; padding:26px 14px;}
 
-  /* ---- 剧情块 ---- */
-  .story-block{border:1px solid #e2e6ea; border-radius:4px; margin:10px 0; padding:14px 16px; background:#fff;}
-  .story-block .sec{color:#c9a227; font-weight:700; margin-bottom:8px;}
-  .dialogue{font-size:13.5px; margin:5px 0; padding-left:10px; border-left:3px solid #e2e6ea;}
-  .dialogue .who{color:#2a6fb5; font-weight:600; margin-right:8px;}
-  pre.code{background:#282c34; color:#e6e1cf; border-radius:4px; padding:14px 16px; font-size:12.5px;
-           overflow-x:auto; line-height:1.9; margin:10px 0;}
+  /* ===== 提示条 ===== */
+  .banner-tip{display:flex; gap:14px; align-items:center; background:linear-gradient(90deg,#fdf3dd,#faf6ec);
+    border:1px solid #e9dcb8; border-left:5px solid var(--gold); border-radius:12px; padding:16px 20px; margin-top:40px;}
+  .banner-tip .dot{font-size:22px;}
+  .banner-tip b{color:#7a5c14;}
+  .banner-tip span{font-size:13.5px; color:#6b6248;}
 
-  /* ---- 页脚 ---- */
-  footer{max-width:1180px; margin:0 auto; padding:22px 20px 40px; text-align:center;
-         color:#999; font-size:12px; border-top:1px solid #d8dde3;}
-  footer .line{margin:4px 0;}
+  /* ===== 剧情/代码 ===== */
+  .chapter{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--gold);
+           border-radius:12px; padding:18px 22px; margin-bottom:14px; box-shadow:0 2px 8px rgba(60,50,30,.04);}
+  .chapter .t{font-weight:700; color:var(--gold); letter-spacing:2px; margin-bottom:8px;}
+  pre.code{background:#2b2723; color:#e9e2d0; border-radius:12px; padding:18px 22px; font-size:13px;
+           overflow-x:auto; line-height:2; margin-top:12px;}
+  footer{margin-top:80px; padding:34px 0 46px; text-align:center; color:var(--muted); font-size:12.5px;
+         border-top:1px solid var(--line);}
+  footer .l1{letter-spacing:4px; color:var(--ink-soft); font-size:13px; margin-bottom:6px;}
+  @media (max-width:760px){
+    .page{padding:28px 16px 70px;}
+    nav .right{display:none;}
+    .hero-inner{padding:0 20px 34px;}
+    .hero .seal{width:64px; height:64px; font-size:15px; top:16px; right:16px;}
+  }
 </style>
 </head>
 <body>
 
-<!-- 顶栏 -->
-<div class="site-header">
-  <div class="inner">
-    <div class="site-logo">
-      <span class="logo-txt">代号鸢WIKI</span>
-      <span class="logo-sub">BWiki · 学宫灵灵七</span>
-    </div>
-    <div class="site-search">
-      <input type="text" placeholder="搜索：学宫灵灵七 / 学堂 / 考试…" disabled>
-      <button disabled>搜索</button>
-    </div>
+<!-- Hero -->
+<div class="hero">
+  <div class="seal serif">学宫</div>
+  <div class="hero-inner">
+    <div class="kicker">代号鸢 · 大富翁系列活动</div>
+    <h1 class="serif">学宫灵灵七</h1>
+    <div class="sub">骰子掷过学宫的青石小径，落进哪一扇门，就撞见哪一段故事。—— 页面骨架 · 内容待填充</div>
   </div>
 </div>
 
-<!-- 主导航 -->
-<div class="main-nav">
+<!-- 导航 -->
+<nav>
   <div class="inner">
+    <div class="brand serif">灵灵七</div>
     <a href="index.html" class="on">活动玩法</a>
     <a href="story.html">活动剧情</a>
-    <a href="#">学堂事件</a>
-    <a href="#">学科问答</a>
-    <a href="#">地点信息</a>
-    <a href="#">商店</a>
-    <a href="#">发展目标</a>
+    <a href="#map">地图</a>
+    <a href="#systems">系统数据</a>
+    <a href="#tasks">发展目标</a>
+    <div class="right">素材 Act111 · v0.3</div>
   </div>
-</div>
+</nav>
 
-<!-- 主体 -->
 <div class="page">
-  <div class="content">
-    <div class="breadcrumb"><a href="https://wiki.biligame.com/yuan/">首页</a> › 活动 › <b>学宫灵灵七/活动玩法</b></div>
-    <h1 class="title">学宫灵灵七 · 活动玩法</h1>
-    <p class="muted">本页为页面骨架（内容待填充）。排版仿 BWiki(yuan)。素材：代号鸢 Act111 导出（007-1 / 007-2）。</p>
 
-    <div class="notice-blue">📌 <b>页面状态：</b>骨架版 —— 表格仅有表头与占位，待从游戏内收集文本后填充。收集表见腾讯文档《学宫灵灵七（收集表模板）.xlsx》。</div>
-
-    <h2>活动简介</h2>
-    <p class="muted">活动时间、活动形式（大富翁/掷骰走棋盘）、核心货币（奖学金/奖杯/白金币）、玩法说明……（待补充）</p>
-
-    <h2>玩法速览</h2>
-    <div class="card-grid">
-      <div class="card-item"><img src="assets/Act111_DicePanel_Dice1.png" alt="骰子"><b>掷骰走格</b><span>通行骰子前进</span></div>
-      <div class="card-item"><img src="assets/Act111_MainAttribute_bg.png" alt="学科"><b>学科能力</b><span>符篆/炼器/灵药/剑道/御兽</span></div>
-      <div class="card-item"><img src="assets/Act111_CreditLevel_Bg.png" alt="学分"><b>学分等级</b><span>升级表待实测</span></div>
-      <div class="card-item"><img src="assets/Act111_Entry_kaochang_bg.png" alt="考试"><b>考场考试</b><span>学科问答+突发事+小抄</span></div>
-      <div class="card-item"><img src="assets/Act111_Book_Bg.png" alt="八卦"><b>学宫八卦小册</b><span>可收集文本小册</span></div>
-      <div class="card-item"><img src="assets/Act111_Monster_img1.png" alt="雪怪"><b>巫之学宫</b><span>不耗骰子·躲避怪物</span></div>
-    </div>
-
-    <h2>学科能力 <span class="tag">5 门 · 图标对应待确认</span></h2>
-    <div class="card-grid">
-      <div class="card-item"><img src="assets/Act111_AttIcon_1.png" alt=""><b>符篆</b><span>书法社</span></div>
-      <div class="card-item"><img src="assets/Act111_AttIcon_2.png" alt=""><b>炼器</b><span>爱拼社/炼器屋</span></div>
-      <div class="card-item"><img src="assets/Act111_AttIcon_3.png" alt=""><b>灵药</b><span>社团名待确认</span></div>
-      <div class="card-item"><img src="assets/Act111_AttIcon_4.png" alt=""><b>剑道</b><span>械斗社</span></div>
-      <div class="card-item"><img src="assets/Act111_AttIcon_5.png" alt=""><b>御兽</b><span>绒绒社</span></div>
-    </div>
-
-    <h2>学分等级升级表 <span class="tag">数值待实测</span></h2>
-    <table class="wikitable">
-      <tr><th style="width:10%">等级</th><th style="width:16%">消耗奖学金</th><th style="width:16%">每圈收益</th><th style="width:16%">经过起点奖励</th><th style="width:14%">解锁新事件</th><th>备注</th></tr>
-      <tr><td class="empty-col" colspan="6">（1级 ~ 5级【满级】数据待填充）</td></tr>
-    </table>
-
-    <h2>地图与地点 <span class="tag">图标：Act111_MapPoint_*</span></h2>
-    <div class="card-grid">
-      <div class="card-item"><img src="assets/Act111_MapPoint_qidian.png" alt=""><b>学宫正门</b><span>起点·发放奖学金</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_jiaoshi.png" alt=""><b>学堂</b><span>随机事件</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_kaoshi.png" alt=""><b>考场</b><span>考试</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_shangdian.png" alt=""><b>黄记小卖部</b><span>商店</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_shetuan.png" alt=""><b>社团会馆</b><span>专项提升</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_shenmiao.png" alt=""><b>神庙</b><span>许愿</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_zixi.png" alt=""><b>自习室</b><span>小抄/学习</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_bangongshi.png" alt=""><b>办公室</b><span>待确认</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_chuansong.png" alt=""><b>传送</b><span>待确认</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_sucaidao.png" alt=""><b>素材道</b><span>待确认</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_xianji_wu.png" alt=""><b>陷阱</b><span>危险格</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_nanzhu.png" alt=""><b>男主点</b><span>校园约会</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_dagong_wu.png" alt=""><b>兼职</b><span>打工</span></div>
-      <div class="card-item"><img src="assets/Act111_MapPoint_putong.png" alt=""><b>普通格</b><span>学宫小径等</span></div>
-    </div>
-
-    <h2>学堂事件 <span class="tag">事件卡表头就绪</span></h2>
-    <table class="wikitable">
-      <tr><th style="width:5%">序号</th><th style="width:8%">地点</th><th style="width:12%">类型</th><th style="width:18%">事件名称</th><th>事件内容</th><th style="width:16%">事件结果</th></tr>
-      <tr><td class="empty-col" colspan="6">（事件卡：学科+2 / +4 / 全学科+1 / 风水观 buff）</td></tr>
-    </table>
-
-    <h2>考场 · 学科问答 <span class="tag">题库待填</span></h2>
-    <table class="wikitable">
-      <tr><th style="width:5%">序号</th><th style="width:7%">学科</th><th>题目</th><th>选项A</th><th>选项B</th><th>选项C</th><th>正确答案</th></tr>
-      <tr><td class="empty-col" colspan="7">（学科问答题库：题目+3选项+正确答案）</td></tr>
-    </table>
-
-    <h2>考场 · 突发事与选项</h2>
-    <table class="wikitable">
-      <tr><th style="width:5%">序号</th><th>突发事内容</th><th>随缘答题</th><th>借鉴张鲁的试卷</th><th>翻阅小抄</th></tr>
-      <tr><td class="empty-col" colspan="5">（突发事文本 + 三选项成功率/结果）</td></tr>
-    </table>
-
-    <h2>自习室 · 小抄系统 <span class="tag">本期新系统</span></h2>
-    <table class="wikitable">
-      <tr><th style="width:5%">序号</th><th style="width:16%">条目名称</th><th>内容文本</th><th style="width:18%">效果</th></tr>
-      <tr><td class="empty-col" colspan="4">（独自学习 / 和男主一起学习 / 准备小抄 / 我的小抄 0/100 / 精进小抄技术）</td></tr>
-    </table>
-
-    <h2>神庙 · 许愿</h2>
-    <table class="wikitable">
-      <tr><th style="width:5%">序号</th><th style="width:12%">许愿结果</th><th style="width:8%">类型</th><th>事件名称</th><th>事件内容</th><th style="width:20%">事件结果</th></tr>
-      <tr><td class="empty-col" colspan="6">（许愿结果：好/坏，素材 Act111_God_1~8）</td></tr>
-    </table>
-
-    <h2>遭遇战 · 怪物PK</h2>
-    <table class="wikitable">
-      <tr><th style="width:5%">序号</th><th style="width:12%">怪物/对手</th><th>事件内容</th><th style="width:14%">胜利奖励</th><th style="width:14%">失败惩罚</th></tr>
-      <tr><td class="empty-col" colspan="5">（雪怪等遭遇战：素材 Act111_Enemy_*）</td></tr>
-    </table>
-
-    <h2>恶魔交易 · 特殊事件 <span class="tag">本期新系统</span></h2>
-    <table class="wikitable">
-      <tr><th style="width:5%">序号</th><th style="width:16%">事件名称</th><th>事件内容（付出/获得）</th><th style="width:14%">触发条件</th></tr>
-      <tr><td class="empty-col" colspan="4">（恶魔交易 emojiaoyi、早恋 zaolian 等特殊入口文本）</td></tr>
-    </table>
-
-    <h2>黄记小卖部 · 商品</h2>
-    <table class="wikitable">
-      <tr><th>商品</th><th style="width:8%">类型</th><th>效果</th><th style="width:10%">消耗</th><th style="width:8%">刷新</th></tr>
-      <tr><td class="empty-col" colspan="5">（提神饮·五学科 / 教辅书 列表）</td></tr>
-    </table>
-
-    <h2>社团会馆</h2>
-    <table class="wikitable">
-      <tr><th>社团</th><th style="width:10%">专攻学科</th><th style="width:10%">消耗</th><th>收益</th><th style="width:12%">奖学金概率</th></tr>
-      <tr><td class="empty-col" colspan="5">（书法社/绒绒社/爱拼社/灵药社/械斗社）</td></tr>
-    </table>
-
-    <h2>发展目标 · 课后作业</h2>
-    <table class="wikitable">
-      <tr><th style="width:14%">任务类型</th><th>任务内容</th><th style="width:12%">奖励</th></tr>
-      <tr><td class="empty-col" colspan="3">（每日任务/活动任务/课后作业/剧情回顾）</td></tr>
-    </table>
-
-    <h2>校外商店</h2>
-    <table class="wikitable">
-      <tr><th>礼包/商品</th><th style="width:16%">获得道具</th><th style="width:14%">花费</th><th style="width:20%">限购/备注</th></tr>
-      <tr><td class="empty-col" colspan="4">（心纸裳·校服×5、心纸君小屋装饰等）</td></tr>
-    </table>
-
-    <h2>概率公示 · 投掷记录</h2>
-    <p class="muted">事件抽取概率、考试得分概率等（游戏内「概率公示」面板整理）……（待补充）</p>
+  <div class="banner-tip">
+    <div class="dot">📜</div>
+    <div><b>页面状态：骨架版</b><span> —— 版式与表格表头已就绪，具体数值与文本待从游戏内收集后填充（收集表：腾讯文档《学宫灵灵七（收集表模板）.xlsx》）。</span></div>
   </div>
 
-  <!-- 右侧栏 -->
-  <div class="sidebar">
-    <div class="infobox">
-      <div class="ib-title">学宫灵灵七</div>
-      <img src="assets/banner.png" alt="活动Banner">
-      <table>
-        <tr><td class="k">活动类型</td><td>大富翁（掷骰走棋盘）</td></tr>
-        <tr><td class="k">主货币</td><td>奖学金</td></tr>
-        <tr><td class="k">奖励货币</td><td>奖杯（兑换心纸裳）</td></tr>
-        <tr><td class="k">学科能力</td><td>符篆/炼器/灵药/剑道/御兽</td></tr>
-        <tr><td class="k">活动时间</td><td class="muted">待补充</td></tr>
-        <tr><td class="k">素材包</td><td>Act111（007-1 / 007-2）</td></tr>
-      </table>
-      <div class="ib-foot">页面骨架 v0.2 · BWiki 排版</div>
+  <!-- 速览 -->
+  <section>
+    <h2><span class="en">OVERVIEW</span><span class="cn serif">活动速览</span></h2>
+    <p class="sec-desc">活动时间待补充 · 形式：掷骰走棋盘（大富翁）</p>
+    <div class="grid g4">
+      <div class="card"><div class="ic"><img src="assets/Act111_DicePanel_Dice1.png" alt=""></div><h3>掷骰走格</h3><p>通行骰子前进，落格触发对应事件</p></div>
+      <div class="card"><div class="ic"><img src="assets/Act111_MainAttribute_bg.png" alt=""></div><h3>学科能力</h3><p>符篆 · 炼器 · 灵药 · 剑道 · 御兽</p></div>
+      <div class="card"><div class="ic"><img src="assets/Act111_CreditLevel_Bg.png" alt=""></div><h3>学分等级</h3><p>经过起点奖励提升，升级表待实测</p></div>
+      <div class="card"><div class="ic"><img src="assets/Act111_Entry_kaochang_bg.png" alt=""></div><h3>考场考试</h3><p>学科问答 · 突发事 · 翻阅小抄</p></div>
     </div>
-    <div class="notice">⚠️ 本页为<b>骨架</b>：仅排版与表头，内容待游戏内收集后填充。</div>
-  </div>
+  </section>
+
+  <!-- 学科 -->
+  <section>
+    <h2><span class="en">SUBJECTS</span><span class="cn serif">学科能力</span></h2>
+    <p class="sec-desc">本期 5 门学科，取代上期 6 项属性（图标对应待确认）</p>
+    <div class="grid g5">
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_1.png" alt=""></div><b class="serif">符篆</b><span>书法社 · 符篆考试</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_2.png" alt=""></div><b class="serif">炼器</b><span>爱拼社 · 炼器屋</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_3.png" alt=""></div><b class="serif">灵药</b><span>社团名待确认</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_4.png" alt=""></div><b class="serif">剑道</b><span>械斗社 · 锻体道场</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_AttIcon_5.png" alt=""></div><b class="serif">御兽</b><span>绒绒社</span></div>
+    </div>
+  </section>
+
+  <!-- 地图 -->
+  <section id="map">
+    <h2><span class="en">MAP</span><span class="cn serif">地图与地点</span></h2>
+    <p class="sec-desc">学宫正门为起点，经过发放奖学金；图标来自素材 Act111_MapPoint_*</p>
+    <div class="grid g5">
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_qidian.png" alt=""></div><b class="serif">学宫正门</b><span>起点 · 发放奖学金</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_jiaoshi.png" alt=""></div><b class="serif">学堂</b><span>随机事件</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_kaoshi.png" alt=""></div><b class="serif">考场</b><span>考试</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_shangdian.png" alt=""></div><b class="serif">黄记小卖部</b><span>商店</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_shetuan.png" alt=""></div><b class="serif">社团会馆</b><span>专项提升</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_shenmiao.png" alt=""></div><b class="serif">神庙</b><span>许愿</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_zixi.png" alt=""></div><b class="serif">自习室</b><span>小抄 · 学习</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_bangongshi.png" alt=""></div><b class="serif">办公室</b><span>待确认</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_chuansong.png" alt=""></div><b class="serif">传送</b><span>待确认</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_sucaidao.png" alt=""></div><b class="serif">素材道</b><span>待确认</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_xianji_wu.png" alt=""></div><b class="serif">陷阱</b><span>危险格</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_nanzhu.png" alt=""></div><b class="serif">男主点</b><span>校园约会</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_dagong_wu.png" alt=""></div><b class="serif">兼职</b><span>打工</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_MapPoint_putong.png" alt=""></div><b class="serif">普通格</b><span>学宫小径等</span></div>
+      <div class="card tall"><div class="ic"><img src="assets/Act111_Monster_img1.png" alt=""></div><b class="serif">巫之学宫</b><span>不耗骰子 · 躲避雪怪</span></div>
+    </div>
+  </section>
+
+  <!-- 系统数据 -->
+  <section id="systems">
+    <h2><span class="en">SYSTEMS</span><span class="cn serif">系统数据</span></h2>
+    <p class="sec-desc">各系统表格表头已就绪，数据待收集填充</p>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">学堂事件</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:5%">序号</th><th style="width:8%">地点</th><th style="width:13%">类型</th><th style="width:18%">事件名称</th><th>事件内容</th><th style="width:16%">事件结果</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="6">事件卡：学科 +2 / +4 / 全学科 +1 / 风水观 buff —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">考场 · 学科问答</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:5%">序号</th><th style="width:7%">学科</th><th>题目</th><th>选项A</th><th>选项B</th><th>选项C</th><th>正确答案</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="7">学科问答题库：题目 + 3 选项 + 正确答案 —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">考场 · 突发事与选项</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:5%">序号</th><th>突发事内容</th><th>随缘答题</th><th>借鉴张鲁的试卷</th><th>翻阅小抄</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="5">突发事文本 + 三选项成功率/结果 —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">自习室 · 小抄系统 <span style="font-size:12px; color:var(--muted);">（本期新系统）</span></h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:5%">序号</th><th style="width:16%">条目名称</th><th>内容文本</th><th style="width:18%">效果</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="4">独自学习 / 和男主一起学习 / 准备小抄 / 我的小抄 0·100 / 精进小抄技术 —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">神庙 · 许愿</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:5%">序号</th><th style="width:12%">许愿结果</th><th style="width:8%">类型</th><th>事件名称</th><th>事件内容</th><th style="width:20%">事件结果</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="6">许愿结果（好/坏）—— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">遭遇战 · 怪物PK</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:5%">序号</th><th style="width:12%">怪物/对手</th><th>事件内容</th><th style="width:14%">胜利奖励</th><th style="width:14%">失败惩罚</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="5">雪怪等遭遇战 —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">恶魔交易 · 特殊事件 <span style="font-size:12px; color:var(--muted);">（本期新系统）</span></h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:5%">序号</th><th style="width:16%">事件名称</th><th>事件内容（付出 / 获得）</th><th style="width:14%">触发条件</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="4">恶魔交易 / 早恋等特殊入口 —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">黄记小卖部 · 商品</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>商品</th><th style="width:8%">类型</th><th>效果</th><th style="width:10%">消耗</th><th style="width:8%">刷新</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="5">提神饮 · 五学科 / 教辅书 —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">社团会馆</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>社团</th><th style="width:10%">专攻学科</th><th style="width:10%">消耗</th><th>收益</th><th style="width:12%">奖学金概率</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="5">书法社 / 绒绒社 / 爱拼社 / 灵药社 / 械斗社 —— 待填充</td></tr></tbody>
+    </table></div>
+
+    <h3 style="margin:26px 0 10px; font-size:17px; letter-spacing:2px;">校外商店</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>礼包 / 商品</th><th style="width:16%">获得道具</th><th style="width:14%">花费</th><th style="width:20%">限购 / 备注</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="4">心纸裳 · 校服 ×5、心纸君小屋装饰 —— 待填充</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <!-- 任务 -->
+  <section id="tasks">
+    <h2><span class="en">GOALS</span><span class="cn serif">发展目标 · 课后作业</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:14%">任务类型</th><th>任务内容</th><th style="width:12%">奖励</th></tr></thead>
+      <tbody><tr><td class="blank" colspan="3">每日任务 / 活动任务 / 课后作业 / 剧情回顾 —— 待填充</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <footer>
+    <div class="l1 serif">学宫灵灵七 · 活动玩法</div>
+    <div>页面骨架 v0.3 · 国风学宫排版 · 素材版权归游戏官方所有 · 内容待填充</div>
+  </footer>
 </div>
-
-<footer>
-  <div class="line">学宫灵灵七 · 活动玩法 —— 页面骨架（排版仿 BWiki yuan）</div>
-  <div class="line">素材版权归游戏官方所有 · 本页由民间爱好者整理 · 内容待填充</div>
-  <div class="line">页面最后编辑：骨架版 v0.2</div>
-</footer>
 </body>
 </html>
