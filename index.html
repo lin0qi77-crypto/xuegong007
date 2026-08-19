@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学宫灵灵七 · 活动玩法（骨架）</title>
+<style>
+  :root{
+    --ink:#2b2f3a; --paper:#f7f3ea; --card:#fffdf7; --line:#e2d9c6;
+    --accent:#b23a2e; --blue:#3a5a78; --gold:#a8842c; --muted:#8a8374;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+       background:var(--paper); color:var(--ink); line-height:1.7;}
+  .wrap{max-width:1060px; margin:0 auto; padding:24px 20px 80px;}
+  header.banner{text-align:center; margin-bottom:28px;}
+  header.banner img{width:100%; max-width:760px; border-radius:14px; box-shadow:0 6px 24px rgba(0,0,0,.18);}
+  h1{font-size:30px; margin:18px 0 4px; letter-spacing:4px; color:var(--ink);}
+  .sub{color:var(--muted); font-size:14px; margin-bottom:14px;}
+  nav{display:flex; gap:10px; justify-content:center; margin:18px 0 6px; flex-wrap:wrap;}
+  nav a{text-decoration:none; padding:7px 22px; border-radius:20px; font-size:14px;
+        background:var(--card); border:1px solid var(--line); color:var(--ink);}
+  nav a.on{background:var(--blue); color:#fff; border-color:var(--blue);}
+  nav a:hover{border-color:var(--gold);}
+  section{margin-top:34px;}
+  h2{font-size:21px; color:var(--blue); border-left:5px solid var(--accent);
+     padding-left:12px; margin-bottom:14px; letter-spacing:2px;}
+  h2 .tag{font-size:12px; color:var(--muted); font-weight:normal; margin-left:8px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center;}
+  .card img{width:64px; height:64px; object-fit:contain; margin-bottom:8px;}
+  .card h3{font-size:15px; margin-bottom:6px;}
+  .card p{font-size:12.5px; color:var(--muted);}
+  table{width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line);}
+  th{background:var(--blue); color:#fff; font-weight:600; padding:9px 10px; font-size:13.5px; text-align:left;}
+  td{border-top:1px solid var(--line); padding:8px 10px; font-size:13px; color:#55504a; vertical-align:top;}
+  tr.empty td{color:#b3ab99; text-align:center;}
+  .placeholder{color:#b3ab99;}
+  .grid-locs{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px;}
+  .loc{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-align:center;}
+  .loc img{width:52px; height:52px; object-fit:contain;}
+  .loc b{display:block; font-size:13.5px; margin-top:6px;}
+  .loc span{font-size:11.5px; color:var(--muted);}
+  .note{font-size:12px; color:var(--muted); margin-top:8px;}
+  footer{margin-top:60px; text-align:center; color:var(--muted); font-size:12px;
+         border-top:1px solid var(--line); padding-top:18px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="banner">
+  <img src="assets/banner.png" alt="学宫灵灵七活动Banner">
+  <h1>学宫灵灵七</h1>
+  <div class="sub">活动玩法 · 页面骨架（内容待填充）｜素材包 Act111 导出</div>
+  <nav>
+    <a class="on" href="index.html">活动玩法</a>
+    <a href="story.html">活动剧情</a>
+  </nav>
+</header>
+
+<section>
+  <h2>活动简介 <span class="tag">待补充</span></h2>
+  <p class="placeholder">活动时间、活动形式（大富翁/掷骰走棋盘）、核心货币（奖学金/奖杯/白金币）、玩法一句话说明……</p>
+</section>
+
+<section>
+  <h2>玩法速览</h2>
+  <div class="cards">
+    <div class="card"><img src="assets/Act111_DicePanel_Dice1.png" alt="骰子"><h3>掷骰走格</h3><p>通行骰子前进，落格触发事件</p></div>
+    <div class="card"><img src="assets/Act111_MainAttribute_bg.png" alt="学科"><h3>学科能力</h3><p>符篆/炼器/灵药/剑道/御兽</p></div>
+    <div class="card"><img src="assets/Act111_CreditLevel_Bg.png" alt="学分"><h3>学分等级</h3><p>升级表待实测（消耗/每圈收益）</p></div>
+    <div class="card"><img src="assets/Act111_Entry_kaochang_bg.png" alt="考试"><h3>考场考试</h3><p>学科问答+突发事+小抄</p></div>
+    <div class="card"><img src="assets/Act111_Book_Bg.png" alt="八卦"><h3>学宫八卦小册</h3><p>可收集文本小册</p></div>
+    <div class="card"><img src="assets/Act111_Monster_img1.png" alt="雪怪"><h3>巫之学宫</h3><p>不耗骰子，躲避怪物</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>学科能力（5 门）<span class="tag">图标对应待确认</span></h2>
+  <div class="cards">
+    <div class="card"><img src="assets/Act111_AttIcon_1.png" alt=""><h3>符篆</h3><p>书法社/符篆考试</p></div>
+    <div class="card"><img src="assets/Act111_AttIcon_2.png" alt=""><h3>炼器</h3><p>爱拼社/炼器屋</p></div>
+    <div class="card"><img src="assets/Act111_AttIcon_3.png" alt=""><h3>灵药</h3><p>灵药社团（名称待确认）</p></div>
+    <div class="card"><img src="assets/Act111_AttIcon_4.png" alt=""><h3>剑道</h3><p>械斗社/锻体道场</p></div>
+    <div class="card"><img src="assets/Act111_AttIcon_5.png" alt=""><h3>御兽</h3><p>绒绒社</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>地图与地点 <span class="tag">图标来自 Act111_MapPoint_*</span></h2>
+  <div class="grid-locs">
+    <div class="loc"><img src="assets/Act111_MapPoint_qidian.png" alt=""><b>学宫正门</b><span>起点·发放奖学金</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_jiaoshi.png" alt=""><b>学堂</b><span>随机事件</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_kaoshi.png" alt=""><b>考场</b><span>考试</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_shangdian.png" alt=""><b>黄记小卖部</b><span>商店</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_shetuan.png" alt=""><b>社团会馆</b><span>专项提升</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_shenmiao.png" alt=""><b>神庙</b><span>许愿</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_zixi.png" alt=""><b>自习室</b><span>小抄/学习</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_bangongshi.png" alt=""><b>办公室</b><span>待确认</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_chuansong.png" alt=""><b>传送</b><span>待确认</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_sucaidao.png" alt=""><b>素材道</b><span>待确认</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_xianji_wu.png" alt=""><b>陷阱</b><span>危险格</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_nanzhu.png" alt=""><b>男主点</b><span>校园约会</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_dagong_wu.png" alt=""><b>兼职</b><span>打工</span></div>
+    <div class="loc"><img src="assets/Act111_MapPoint_putong.png" alt=""><b>普通格</b><span>学宫小径等</span></div>
+  </div>
+  <p class="note">地点文案（用处/描述）待从游戏内「地点信息」面板逐格补充。</p>
+</section>
+
+<section>
+  <h2>学堂事件 <span class="tag">表头就绪 · 内容待填</span></h2>
+  <table>
+    <tr><th style="width:5%">序号</th><th style="width:10%">地点</th><th style="width:14%">类型</th><th>事件名称</th><th>事件内容</th><th style="width:16%">事件结果</th></tr>
+    <tr class="empty"><td colspan="6">（事件卡：学科+2 / +4 / 全学科+1 / 风水观 buff 事件）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>考场 · 学科问答 <span class="tag">题库待填</span></h2>
+  <table>
+    <tr><th style="width:5%">序号</th><th style="width:8%">学科</th><th>题目</th><th>选项A</th><th>选项B</th><th>选项C</th><th>正确答案</th></tr>
+    <tr class="empty"><td colspan="7">（学科问答题库：题目+3选项+正确答案）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>考场 · 突发事与选项</h2>
+  <table>
+    <tr><th style="width:5%">序号</th><th>突发事内容</th><th>随缘答题</th><th>借鉴张鲁的试卷</th><th>翻阅小抄</th></tr>
+    <tr class="empty"><td colspan="5">（突发事文本 + 三选项成功率/结果）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>自习室 · 小抄系统 <span class="tag">本期新系统</span></h2>
+  <table>
+    <tr><th style="width:5%">序号</th><th style="width:16%">条目名称</th><th>内容文本</th><th style="width:18%">效果</th></tr>
+    <tr class="empty"><td colspan="4">（独自学习 / 和男主一起学习 / 准备小抄 / 我的小抄 0/100 / 精进小抄技术）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>神庙 · 许愿</h2>
+  <table>
+    <tr><th style="width:5%">序号</th><th style="width:12%">许愿结果</th><th style="width:8%">类型</th><th>事件名称</th><th>事件内容</th><th style="width:20%">事件结果</th></tr>
+    <tr class="empty"><td colspan="6">（许愿结果：好/坏，素材 Act111_God_1~8、Entry_God_*）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>遭遇战 · 怪物PK</h2>
+  <table>
+    <tr><th style="width:5%">序号</th><th style="width:10%">怪物/对手</th><th>事件内容</th><th style="width:14%">胜利奖励</th><th style="width:14%">失败惩罚</th></tr>
+    <tr class="empty"><td colspan="5">（雪怪等遭遇战：素材 Act111_Enemy_*、GameView_pk*）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>恶魔交易 · 特殊事件 <span class="tag">本期新系统</span></h2>
+  <table>
+    <tr><th style="width:5%">序号</th><th style="width:16%">事件名称</th><th>事件内容（付出/获得）</th><th style="width:14%">触发条件</th></tr>
+    <tr class="empty"><td colspan="4">（恶魔交易 emojiaoyi、早恋 zaolian 等特殊入口文本）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>黄记小卖部 · 商品</h2>
+  <table>
+    <tr><th>商品</th><th style="width:8%">类型</th><th>效果</th><th style="width:10%">消耗</th><th style="width:8%">刷新</th></tr>
+    <tr class="empty"><td colspan="5">（提神饮·五学科 / 教辅书 列表）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>社团会馆</h2>
+  <table>
+    <tr><th>社团</th><th style="width:10%">专攻学科</th><th style="width:10%">消耗</th><th>收益</th><th style="width:12%">奖学金概率</th></tr>
+    <tr class="empty"><td colspan="5">（书法社/绒绒社/爱拼社/灵药社/械斗社）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>发展目标 · 课后作业</h2>
+  <table>
+    <tr><th style="width:14%">任务类型</th><th>任务内容</th><th style="width:12%">奖励</th></tr>
+    <tr class="empty"><td colspan="3">（每日任务/活动任务/课后作业/剧情回顾）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>校外商店</h2>
+  <table>
+    <tr><th>礼包/商品</th><th style="width:16%">获得道具</th><th style="width:14%">花费</th><th style="width:20%">限购/备注</th></tr>
+    <tr class="empty"><td colspan="4">（心纸裳·校服×5、心纸君小屋装饰等）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>概率公示 · 投掷记录</h2>
+  <p class="placeholder">事件抽取概率、考试得分概率等（游戏内「概率公示」面板整理）……</p>
+</section>
+
+<footer>学宫灵灵七 · 页面骨架 v0.1 — 内容待填充 · 素材：代号鸢 Act111 导出（007-1 / 007-2）</footer>
+</div>
+</body>
+</html>
